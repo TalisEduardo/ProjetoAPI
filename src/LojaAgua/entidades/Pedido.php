@@ -21,7 +21,16 @@ private $id;
   * @var datetime @Column(type="datetime")
   */
 private $hora;
+
+/**
+  * @ManyToOne(targetEntity="Usuario")
+  * @JoinColumn(name="usuario_id", referencedColumnName="id")
+*/
 private $usuario;
+
+/**
+  * @OneToMany(targetEntity="Item", mappedBy="pedido", cascade={"persist", "remove"})
+*/
 private $itens;
 
 

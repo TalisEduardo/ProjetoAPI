@@ -1,12 +1,14 @@
 <?php
 namespace LojaAgua\entidades;
 
+use LojaAgua\entidades\Entidade;
+
 /**
   * @Entity
   * @Table(name="usuario")
   */
 
-class Usuario{
+class Usuario extends Entidade{
 
   /**
   * @var integer @Id
@@ -118,6 +120,14 @@ return false;
 public function toString(){
 
  return "  [id:" .$this->id. "]  [email:" .$this->email. "]  [senha:" .$this->senha. "]  [endereco:" .$this->endereco. "]  " ;
+}
+
+public function toArray() {
+  return [
+    "id"=>$this->id,
+    "email"=>$this->email,
+    "endereco"=>$this->endereco
+  ];
 }
 
 }
